@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "mk8snodegroup-e00dcxc5mq2gs61v8t",
+    "parent_id": "mk8scluster-e00ntt5hyt9mjvswna",
+    "name": "green-raccoon-node-group-5",
+    "resource_version": "1",
+    "created_at": "2026-05-09T20:02:21Z",
+    "updated_at": "2026-05-09T20:02:21Z"
+  },
+  "spec": {
+    "version": "1.33",
+    "fixed_node_count": "2",
+    "template": {
+      "resources": {
+        "platform": "gpu-h100-sxm",
+        "preset": "1gpu-16vcpu-200gb"
+      },
+      "boot_disk": {
+        "size_gibibytes": "100",
+        "block_size_bytes": "4096",
+        "type": "NETWORK_SSD"
+      },
+      "gpu_settings": {
+        "drivers_preset": "cuda13.0"
+      },
+      "os": "ubuntu24.04",
+      "network_interfaces": [
+        {
+          "public_ip_address": {},
+          "subnet_id": "vpcsubnet-e00cktaw2b81ssb2q1"
+        }
+      ],
+      "service_account_id": "serviceaccount-e00pq42r13k18r5m57",
+      "reservation_policy": {}
+    }
+  }
+}

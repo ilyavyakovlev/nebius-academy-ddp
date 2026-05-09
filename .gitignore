@@ -1,0 +1,4 @@
+.private_key
+.env
+private.pem
+public.pem
