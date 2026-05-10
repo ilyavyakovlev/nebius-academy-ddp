@@ -1,0 +1,25 @@
+FROM nvidia/cuda:12.8.1-cudnn-runtime-ubuntu24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /app
+
+# Ubuntu 24.04 ships Python 3.12; install pip alongside it
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3 python3-pip python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# PyTorch 2.11.0 built against CUDA 12.8
+RUN pip install --no-cache-dir --break-system-packages \
+    torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128
+
+# Remaining deps pinned to match uv.lock
+RUN pip install --no-cache-dir --break-system-packages \
+    transformers==5.8.0 \
+    datasets==4.8.5 \
+    accelerate==1.13.0
+
+COPY train_local.py .
+
+ENV TOKENIZERS_PARALLELISM=false
+
+CMD ["python3", "train_local.py"]
