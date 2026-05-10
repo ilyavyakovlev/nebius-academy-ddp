@@ -2,3 +2,4 @@
 .env
 private.pem
 public.pem
+output
