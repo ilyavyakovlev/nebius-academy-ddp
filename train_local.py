@@ -34,6 +34,8 @@ def main():
         print(f"GPU: {torch.cuda.get_device_name(0)}")
         print(f"VRAM available: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
     # Don't move model manually — Trainer/accelerate handles device placement.
+    if device == "cuda":
+        print(f"VRAM allocated after model load: {torch.cuda.memory_allocated() / 1e9:.2f} GB")
 
     # ── Dataset ────────────────────────────────────────────────────────
     # Same dataset as train.py for easy comparison.
@@ -73,7 +75,7 @@ def main():
     # ── Training ───────────────────────────────────────────────────────
     args = TrainingArguments(
         output_dir="./output",
-        max_steps=20,                           # smoke test — raise to 500+ for real training
+        max_steps=300,                          # enough steps to observe GPU load
         per_device_train_batch_size=per_device_train_batch_size,
         per_device_eval_batch_size=per_device_eval_batch_size,
         gradient_accumulation_steps=gradient_accumulation_steps,
