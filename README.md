@@ -56,7 +56,7 @@ Provision a Nebius Managed Kubernetes (mk8s) cluster with a single nodegroup usi
 
 ```bash
 nebius mk8s cluster get-credentials \
-  --id <YOUR_CLUSTER_ID> \
+  --id mk8scluster-e00ztmexs12zjm88gb \
   --external \
   --kubeconfig ~/.kube/config
 ```

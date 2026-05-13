@@ -1,0 +1,12 @@
+api_server:
+  endpoint: https://public-e00-ffh01f1sn2dyjnt-nmkxbb5t7fhra21-skypilot.gw.msp.eu-north1.nebius.cloud
+
+allowed_clouds:
+  - aws
+  - gcp
+  - kubernetes
+
+kubernetes:
+  remote_identity: my-k8s-service-account
+  allowed_contexts:
+    - nebius-mk8s-ilya-yakovlev-cluster-e00ztmexs12zjm88gb
