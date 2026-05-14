@@ -3,10 +3,10 @@ name: nebius-ddp-training
 workdir: .
 
 resources:
-  infra: k8s/akademy-test-mk8s
+  infra: k8s/nebius-mk8s-yakovlev-hw1-2-e00pkxy8vhw1ps5e6t
   accelerators: "H100:1"
   memory: "60+"
-  image_id: docker:cr.eu-north1.nebius.cloud/e00g98qe9694ryna8e/nebius-trainer:v3
+  image_id: docker:cr.eu-north1.nebius.cloud/e00rek149mfnqz7bhn/nebius-trainer:v1
 
 num_nodes: 2
 
